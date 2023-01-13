@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import App from "./App";
 
@@ -11,5 +11,15 @@ describe("App", () => {
     const { getByAltText } = render(<App />);
 
     expect(getByAltText("React logo")).toBeTruthy();
+  });
+  test("renders counter", () => {
+    const { getByLabelText } = render(<App />);
+
+    expect(getByLabelText("increment button")).toBeTruthy();
+  });
+  test("renders counter", () => {
+    const { getByLabelText, getByText } = render(<App />);
+    fireEvent.click(getByLabelText("increment button"));
+    expect(getByText("count is 1")).toBeTruthy();
   });
 });
