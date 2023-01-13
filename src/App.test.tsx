@@ -9,6 +9,7 @@ describe("App", () => {
   });
   test("renders react logo", () => {
     const { getByAltText } = render(<App />);
+
     expect(getByAltText("React logo")).toBeTruthy();
   });
 });
