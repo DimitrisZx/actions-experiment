@@ -17,7 +17,7 @@ describe("App", () => {
 
     expect(getByLabelText("increment button")).toBeTruthy();
   });
-  test("renders counter", () => {
+  test("increments counter", () => {
     const { getByLabelText, getByText } = render(<App />);
     fireEvent.click(getByLabelText("increment button"));
     expect(getByText("count is 1")).toBeTruthy();
